@@ -13,9 +13,9 @@ In the FCN16s, the output from the second fully connected layer is upsampled usi
 The FCN8s follows the same architecture as the FCN16s, except an additional skip connection is applied which also incorporates the output from the block 3 pooling layer. The output of this model is a transpose convolution with strides of 8x8. 
 
 I have implemented all 3 of these model architectures built on top of a VGG16 network with pretrained weights (trained on the imagenet dataset). My implementations of the models can be seen in the respective ipython notebooks:
-* [FCN_32.ipynb](FCN_32.ipynb)
-* [FCN_16.ipynb](FCN_16.ipynb)
-* [FCN_8.ipynb](FCN_8.ipynb)
+* [FCN32.ipynb](FCN32.ipynb)
+* [FCN16.ipynb](FCN16.ipynb)
+* [FCN8.ipynb](FCN8.ipynb)
 
 ### Model Outputs:
 The authors of the paper emphasized the importance of combining layers with different strides to improve the segmentation detail, and their example output images showed that the models with skip connections made predictions which were much closer to the ground truth image.
@@ -58,5 +58,5 @@ This project requires python 3 and the following dependencies:
 
 To run the code, first download the datasaet from [here](http://www.cvlibs.net/download.php?file=data_road.zip) and then launch one of the notebooks from a terminal, for example:
 ```
-jupyter notebook FCN_8.ipynb
+jupyter notebook FCN8.ipynb
 ```
