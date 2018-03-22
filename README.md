@@ -4,9 +4,9 @@
 ### Summary:
 In the paper [Fully Convolutional Networks for Semantic Segmentation](https://people.eecs.berkeley.edu/~jonlong/long_shelhamer_fcn.pdf), the authors described how fully convolutional networks can be utiziled to make pixel-wise predictions for semantic segmentation tasks. The paper mentions three FCN architectures, FCN32s, FCN16s and FCN8s, which are all built on top of a VGG16 model with transpose convolutions used to upsample the layers back to the original image height and width. 
 ### Model Architectures:
-The architecture of the VGG16 network can be viewed [here](https://github.com/keras-team/keras/blob/master/keras/applications/vgg16.py), and in the fully convolutional version the 2 fully connected layers ('fc1' and 'fc2') are converted to convolutional layers.
+The architecture of the VGG16 network can be viewed [here](https://github.com/keras-team/keras/blob/master/keras/applications/vgg16.py), and in the fully convolutional version the 2 fully connected layers ('fc1' and 'fc2') are converted to convolutional layers. The semantic segmentation networks that I have implemented in this project are built on top of the fully convolutional VGG16 network.
 
-To build the FCN32s network, a 1x1 convolution is applied to the output of the second convolutional layer, and then a transpose convolution with strides of 32x32. 
+To build the FCN32s network, a 1x1 convolution is applied to the output of the second convolutionalized, fully connected layer of the VGG16, and then a transpose convolution with strides of 32x32 upsamples the output to the original input image height and width. 
 
 In the FCN16s, the output from the second fully connected layer is upsampled using a transpose convolution with stride = 2, and a skip connection is applied which combines the output of the upsampled layer with the block 4 pooling layer. After applying the skip connection, the output of the model will is another transpose convolution, this time with strides of 16x16.
 
